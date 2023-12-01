@@ -58,7 +58,7 @@ By following these steps, you can easily utilize the Work Day Scheduler to manag
 ## Links
 
 ![Screenshot of Work-Day-Scheduler Webiste](Assets/images/WorkDaySchedulerSS.png)
-Link to Deployed App: (https://jlj98.github.io/Code-Quiz/)
+Link to Deployed App: (https://jlj98.github.io/Work-Day-Scheduler/)
 
 ## Credits
 

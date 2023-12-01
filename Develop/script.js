@@ -49,7 +49,23 @@ $(function () {
   $(".saveBtn").on("click", function () {
     var timeBlockId = $(this).closest(".time-block").attr("id");
     var userInput = $(this).siblings(".description").val();
-    localStorage.setItem(timeBlockId, userInput);
+
+    // Check if user input is not empty before saving
+    if (userInput.trim() !== "") {
+      // Save the event to local storage
+      localStorage.setItem(timeBlockId, userInput);
+
+      // Display a success message in the header
+      displayMessage("Appointment added to local storage!");
+
+      // Clear the message after a few seconds
+      setTimeout(function () {
+        $("#headerMessage").text("");
+      }, 3000);
+    } else {
+      // Display an error message if the user input is empty
+      displayMessage("Please enter an event before saving.", true);
+    }
   });
 
   // Apply the past, present, or future class to each time block by comparing the id to the current hour.
@@ -79,4 +95,10 @@ $(function () {
   // Add code to display the current date in the header of the page.
   var currentDate = dayjs().format("dddd, MMMM D, YYYY");
   $("#currentDay").text(currentDate);
+
+  // Function to display a message in the header
+  function displayMessage(message, isError = false) {
+    // Add the message to the header 
+    $("#headerMessage").text(message);
+  }
 });
